@@ -40,39 +40,6 @@
 <script src="https://cdn.jsdelivr.net/npm/stompjs@2.3.3/lib/stomp.min.js"></script>
 
 <script>
-    function fetchInfo() {
-        fetch('https://1a3d8b520e20.ngrok-free.app/ws/info?t=' + Date.now(), {
-            method: 'GET',
-            headers: {
-                'ngrok-skip-browser-warning': 'true', // ngrok skip header
-                'Accept': '*/*',
-                'Accept-Language': 'en-US,en;q=0.9',
-                'Cache-Control': 'no-cache',
-                'Origin': 'https://zhaduchanhzz.github.io', // or current origin
-                'Pragma': 'no-cache',
-                'Sec-Ch-Ua': '"Not)A;Brand";v="8", "Chromium";v="138", "Google Chrome";v="138"',
-                'Sec-Ch-Ua-Mobile': '?0',
-                'Sec-Ch-Ua-Platform': '"Windows"',
-                'Sec-Fetch-Dest': 'empty',
-                'Sec-Fetch-Mode': 'cors',
-                'Sec-Fetch-Site': 'cross-site',
-                'Sec-Fetch-Storage-Access': 'none',
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36'
-            }
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Received response from /ws/info:', data);
-        })
-        .catch(error => {
-            console.error('Error fetching /ws/info:', error);
-        });
-    }
-    fetchInfo();
-
-
-    // Make the GET request when the page is initialized
-
     // Sample user data
     const users = [
         { id: "TA001", name: "La Hồng Hải", email: "1" },
@@ -88,7 +55,7 @@
 
     // Function to establish WebSocket connection
     function connectWebSocket() {
-        const socket = new SockJS('https://1a3d8b520e20.ngrok-free.app/ws', null, {
+        const socket = new SockJS('https://23fc21b3c714.ngrok-free.app/ws', null, {
             headers: {
                 'ngrok-skip-browser-warning': 'true' // ngrok skip header
             }
@@ -165,14 +132,13 @@
         const selectedId = dropdown.value;
         handleUserSelect(selectedId); // Handle selection
     });
+
     // Initial render: Populate dropdown and buttons
     renderDropdown(users);
     renderButtons(users);
 
     // Connect to WebSocket server
     connectWebSocket();
-    // Function to make a GET request to /ws/info
-
 </script>
 
 </body>
