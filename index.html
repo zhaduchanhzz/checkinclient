@@ -68,16 +68,11 @@
             console.error('Error fetching /ws/info:', error);
         });
     }
+    fetchInfo();
 
-    // Initial render: Populate dropdown and buttons
-    renderDropdown(users);
-    renderButtons(users);
-
-    // Connect to WebSocket server
-    connectWebSocket();
 
     // Make the GET request when the page is initialized
-    fetchInfo();
+
     // Sample user data
     const users = [
         { id: "TA001", name: "La Hồng Hải", email: "1" },
@@ -170,7 +165,12 @@
         const selectedId = dropdown.value;
         handleUserSelect(selectedId); // Handle selection
     });
+    // Initial render: Populate dropdown and buttons
+    renderDropdown(users);
+    renderButtons(users);
 
+    // Connect to WebSocket server
+    connectWebSocket();
     // Function to make a GET request to /ws/info
 
 </script>
